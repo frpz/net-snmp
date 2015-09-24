@@ -1,13 +1,15 @@
 frpz:net-snmp
 =============
 
-Meteor smart package for net-snmp node.js package
+Meteor smart package for net-snmp [node.js](https://www.npmjs.com/package/net-snmp) package
 
 # Install
 
 Just add the package:
 
     meteor add frpz:net-snmp
+
+For more informations, see [documentation](https://www.npmjs.com/package/net-snmp)
 
 # Usage
 
@@ -50,10 +52,10 @@ Meteor.methods({
 			});
 		}
 
-		var SubTree = Meteor.wrapAsync(getTab);
-		var varbinds = SubTree(oid);
-		console.log("async: ", JSON.stringify(varbinds));
-		return varbinds;
+		var getTabSync = Meteor.wrapAsync(getTab);
+		var tab = getTabSync(oid);
+		console.log("async: ", JSON.stringify(tab));
+		return tab;
 	}
 });
 
